@@ -1,108 +1,74 @@
-// import { useState } from "react";
+import { Link } from "react-router-dom";
 
-
-const ThirdComp = ({obj1}) => {
-
+const ThirdComp = ({ obj1, num }) => {
   console.log(obj1);
-    return (
-      <>
-        <span className="text-latest m-l"> Latest Articles</span>
+  return (
+    <>
+      <span className="text-latest m-l"> Latest Articles</span>
 
-        <section className="col">
-          <section className="col-left">
-            <div className="container-2">
-              <article className="card-2">
-                <img src={obj1[0].img_url} alt="" />
-                <div style={{padding:'0 90px 0 10px'}}>
-                  <h3>{obj1[0].h3}</h3>
-                  <span>
-                  {obj1[0].span}
-                  </span>
-                  <p className="p">{obj1[0].p}</p>
-                </div>
-              </article>
-
-              <article className="card-2">
-                {/* <img src={obj1[1].img_url} alt="" /> */}
-                <div style={{padding:'0 90px 0 10px'}}>
-                  {/* <h3>{obj1[1].h3}</h3> */}
-                  <span>
-                  {/* {obj1[1].span} */}
-                  </span>
-                  {/* <p className="p">{obj1[1].p}</p> */}
-                </div>
-              </article>
-
-              <article className="card-2">
-                {/* <img src={obj1[2].img_url} alt="" /> */}
-                <div style={{padding:'0 90px 0 10px'}}>
-                  {/* <h3>{obj1[2].h3}</h3> */}
-                  <span>
-                  {/* {obj1[2].span} */}
-                  </span>
-                  {/* <p className="p">{obj1[2].p}</p> */}
-                </div>
-              </article>
-            </div>
-            <div className="big-img">
-              <h3 style={{ opacity: "0.5" }}>Lake Lucerne, Switzerland</h3>
-              <p className="p">Travel / August 28 2017</p>
-            </div>
-          </section>
-
-          <section className="col-right">
-            <div className="ad"></div>
-            <div>
-              <p className="text-latest">Top Posts</p>
-              <img
-                className="small-img"
-                src="./Images/pexels-tobias-bjørkli-1887624.jpg"
-                alt=""
-              />
-              <h3>Somthing is good than nothing</h3>
-              <p className="p">Travel / August 28 2017</p>
-              <div className="container-2">
-                <article className="card-2">
-                  <img
-                    className="smallCard-img"
-                    src="./Images/pexels-tobias-bjørkli-1887624.jpg"
-                    alt=""
-                  />
-                  <div>
-                    <h3>Somthing is good than nothing</h3>
-                    <p className="p">Travel / August 28 2017</p>
+      <section className="col">
+        <section className="col-left">
+          <div className="container-2">
+            {obj1.slice(num, num+4).map((item, index) => {
+              return (
+                <Link className='link-text' key={index} to='/article'>
+                  <article className="card-2" >
+                  <img src={item.img_url} className='card-2-img' alt="" />
+                  <div className="card-2-txt-padding">
+                    <h3>{item.h3}</h3>
+                    <span>{item.span}</span>
+                    <p className="p">{item.p}</p>
                   </div>
                 </article>
+                </Link>
+              );
+            })}
 
-                <article className="card-2">
-                  <img
-                    className="smallCard-img"
-                    src="./Images/pexels-tobias-bjørkli-1887624.jpg"
-                    alt=""
-                  />
-                  <div>
-                    <h3>Somthing is good than nothing</h3>
-                    <p className="p">Travel / August 28 2017</p>
-                  </div>
-                </article>
-
-                <article className="card-2">
-                  <img
-                    className="smallCard-img"
-                    src="./Images/pexels-tobias-bjørkli-1887624.jpg"
-                    alt=""
-                  />
-                  <div>
-                    <h3>Somthing is good than nothing</h3>
-                    <p className="p">Travel / August 28 2017</p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </section>
+           
+          </div>
+          <Link className='link-text' to='/article'>
+          <div className="big-img">
+            <h3 style={{ opacity: "0.9" }}>Park Lucerne, Switzerland</h3>
+            <p className="p" style={{ opacity: "0.9" }}>Travel / August 28 2017</p>
+          </div>
+          </Link>
         </section>
-      </>
-    );
-}
 
-export default ThirdComp
+        <section className="col-right">
+          <div className="ad"> Advertisement </div>
+          <div>
+            <p className="text-latest">Top Posts</p>
+            <Link className='link-text' to='/article'>
+            <img
+              className="small-img"
+              src="../Images/pexels-ben-cheung-441379.jpg"
+              alt=""
+            />
+            <h3>Somthing is good than nothing</h3>
+            <p className="p">Travel / August 28 2017</p>
+            </Link>
+            <div className="container-2">
+              {obj1.slice(num+4, num+9).map((item, index) => {
+                return (
+                  <Link className='link-text' key={index} to='/article' >
+                    <article  className="card-3">
+                    <img className="smallCard-img" src={item.img_url} alt="" />
+                    <div style={{ padding: "0 0 0 10px" }}>
+                      <p className="card-2-h3">  <strong>{item.h3} </strong></p>
+                      <p className="p">{item.p} </p>
+                    </div>
+                  </article>
+                  </Link>
+                );
+              })}
+
+            
+            </div>
+          </div>
+        </section>
+      </section>
+    </>
+  );
+};
+
+export default ThirdComp;
