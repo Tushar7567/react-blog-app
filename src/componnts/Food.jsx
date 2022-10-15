@@ -1,22 +1,15 @@
 import React from 'react'
 import ThirdComp from './Third.Comp'
-import { useState,useEffect,} from "react";
+// import { useState,useEffect,} from "react";
 
 
 
- const Food = () => {
-  const [obj1, setObj1] = useState([])
+ const Food = ({obj1, num}) => {
 
-  let passed = require("../mock_data.json")
-  useEffect(()=>{
-    
-    setObj1(passed.food);
-      
-  },[passed])
   return (
     <div>
       {/* <h1>food Page</h1> */}
-      <ThirdComp obj1={obj1} />
+      <ThirdComp obj1={obj1} num={num} />
 
       
     </div>
