@@ -9,10 +9,10 @@ app.get("/",(req,res)=>{
     res.send("You are connected")
 })
 
-app.listen(5000,()=>{
-    console.log("server running");
-})
-
-// app.listen(process.env.PORT||8080,()=>{
+// app.listen(5000,()=>{
 //     console.log("server running");
 // })
+
+app.listen(process.env.PORT||8080,()=>{
+    console.log("server running");
+})
