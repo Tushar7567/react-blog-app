@@ -18,7 +18,8 @@ function App() {
   // let passed = require("./mock_data.json")
   useEffect(() => {
     const fetchdata = async () => {
-      fetch("/onlydata.json")
+      // fetch("/onlydata.json")
+      fetch("https://login-server-tus.herokuapp.com/home/bollywood")
         .then((response) => {
           return response.json();
         })
