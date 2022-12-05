@@ -21,7 +21,7 @@ console.log(data1);
 //     res.send("You are connected")
 // })
 
-app.get("/contact",(req,res)=>{
+app.get("/",(req,res)=>{
     // res.cookie('test', 'oktoken');
     res.send("You are connected to Contact page")
 })
