@@ -49,6 +49,11 @@ const Navbar = () => {
                 Food
               </Link>
             </li>
+            <li>
+              <Link to="/signup" className="link-text">
+                Signup
+              </Link>
+            </li>
           </ul>
         </div>
         <Outlet />

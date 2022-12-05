@@ -9,7 +9,9 @@ import Hollywood from "./componnts/Hollywood";
 import Fitness from "./componnts/Fitness";
 import Food from "./componnts/Food";
 import Article from "./componnts/Article";
+import SignUp from "./componnts/SignUp";
 import React, { useState, useEffect } from "react";
+import SignIn from "./componnts/SignIn";
 
 
 function App() {
@@ -67,8 +69,11 @@ function App() {
               element={<Fitness obj1={obj1} num={fitness} />}
             />
             <Route path="/food" element={<Food obj1={obj1} num={food} />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
           </Route>
           <Route path="/article" element={<Article />} />
+
         </Routes>
       </BrowserRouter>
     </>
