@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     const fetchdata = async () => {
       // fetch("/onlydata.json")
-      fetch("https://login-server-tus.herokuapp.com/home/bollywood")
+      fetch("http://localhost:5000/home/bollywood")
         .then((response) => {
           return response.json();
         })

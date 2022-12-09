@@ -1,5 +1,6 @@
 import React ,{useState} from 'react';
-import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom";
+import axios from "axios"
 
 const SignUp = () => {
 
@@ -28,19 +29,22 @@ const SignUp = () => {
             body: JSON.stringify({
                 name, email, phone, password, cpassword 
             })
-        });
+        })
+        
+
 
         const data = await res.json();
+        console.log(data);
 
-        if(data.status === 422 || !data){
-            window.alert("Invalid registered");
-            console.log("Invalid registered");
-        }else{
-            window.alert("Registration Successfull");
-            console.log("Successfull Registration");
+        // if(data.status === 422 || !data){
+        //     window.alert("Invalid registered");
+        //     console.log("Invalid registered");
+        // }else{
+        //     window.alert("Registration Successfull");
+        //     console.log("Successfull Registration");
 
-            navigate.push("/login");
-        }
+        //     // navigate.push("/login");
+        // }
 
 
     }
@@ -97,7 +101,7 @@ const SignUp = () => {
             </label>
             <input id="login-input-cpassword" className="login__input" type="password" />
           
-            <button className="login__submit" disabled onClick={postData}>Sign Up</button>
+            <button className="login__submit"  onClick={postData}>Sign Up</button>
         </form>
        
     </div> 
