@@ -13,15 +13,16 @@ import SignUp from "./componnts/SignUp";
 import React, { useState, useEffect } from "react";
 import SignIn from "./componnts/SignIn";
 
-
 function App() {
   const [obj1, setObj1] = useState([]);
+
+  const user = localStorage.getItem("token");
 
   // let passed = require("./mock_data.json")
   useEffect(() => {
     const fetchdata = async () => {
       // fetch("/onlydata.json")
-      fetch("http://localhost:5000/home/bollywood")
+      fetch("/onlydata.json")
         .then((response) => {
           return response.json();
         })
@@ -42,16 +43,12 @@ function App() {
   let food = 52;
   let home = 65;
 
-
   return (
     <>
-      
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navbar />}>
-            <Route 
-            path="/" 
-            element={<Home obj1={obj1} num={home} />} />
+            <Route path="/" element={<Home obj1={obj1} num={home} />} />
             <Route
               path="/bollywood"
               element={<Bollywood obj1={obj1} num={bollywood} />}
@@ -69,11 +66,11 @@ function App() {
               element={<Fitness obj1={obj1} num={fitness} />}
             />
             <Route path="/food" element={<Food obj1={obj1} num={food} />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" exact element={<SignUp />} />
+            <Route path="/login" exact element={<SignIn />} />
+            {/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
           </Route>
           <Route path="/article" element={<Article />} />
-
         </Routes>
       </BrowserRouter>
     </>
