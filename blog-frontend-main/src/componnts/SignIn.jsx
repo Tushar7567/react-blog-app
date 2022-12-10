@@ -4,35 +4,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
-  //   return (
-  //     <>
-
-  /* <div className="login-container">
-        <form method='POST' className="form-login">
-            <ul className="login-nav">
-                <li className="login-nav__item active">
-                    <a href="#">Sign In</a>
-                </li>
-                <li className="login-nav__item">
-                    <a href="/signup">Sign Up</a>
-                </li>
-            </ul>
-            <label htmlFor="login-input-user" className="login__label">
-                Username
-            </label>
-            <input id="login-input-user" className="login__input" type="text" />
-            <label htmlFor="login-input-password" className="login__label">
-                Password
-            </label>
-            <input id="login-input-password" className="login__input" type="password" />
-          
-            <button className="login__submit" disabled>Sign in</button>
-        </form>
-       
-    </div> */
-
-  //     </>
-  //   )
 
   const [data, setData] = useState({ email: "", password: "" });
   // const [error, setError] = useState("");
@@ -45,24 +16,7 @@ const SignIn = () => {
     console.log(data);
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const url = "/signin";
-  //     const res  = await axios.post(url, data);
-  //     localStorage.setItem("token", res.data);
-  //     window.location = "/home";
-  //   } catch (error) {
-  //     if (
-  //       error.response &&
-  //       error.response.status >= 400 &&
-  //       error.response.status <= 500
-  //     ) {
-  //       setError(error.response.data.message);
-  //     }
-  //   }
-  // };
-
+ 
 
   // https://testing-2-x2zd.onrender.com
 

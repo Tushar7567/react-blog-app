@@ -67,7 +67,7 @@ function App() {
             />
             <Route path="/food" element={<Food obj1={obj1} num={food} />} />
             <Route path="/signup" exact element={<SignUp />} />
-            <Route path="/login" exact element={<SignIn />} />
+            <Route path="/signin" exact element={<SignIn />} />
             {/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
           </Route>
           <Route path="/article" element={<Article />} />

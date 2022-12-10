@@ -42,22 +42,6 @@ router.post("/signup", async(req,res)=>{
             res.status(201).json({ message : "User registered successfully"});
            
         }
-
-
-
-        // .then((userExist) => {
-        //     if(userExist){
-        //         return res.status(422).json({ error : "Email already exist"});
-
-        //     }
-
-        //     const user = new User({name, email, phone, password, cpassword});
-
-        //     user.save().then(() => {
-        //         return res.status(201).json({ message : "User registered successfully"});
-        //     }).catch((err) => res.status(500).json({ error : "Failed to registered"}));
-            
-        // })
     }
     catch(err) {
         console.log(err);
