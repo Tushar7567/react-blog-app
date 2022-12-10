@@ -16,6 +16,8 @@ router.post("/signup", async(req,res)=>{
     // res.send("SignUp")
 
 
+    console.log(req.body);
+
     const {name, email, phone, password, cpassword} = req.body;
 
     if(!name || !email || !phone || !password || !cpassword){
@@ -49,13 +51,14 @@ router.post("/signup", async(req,res)=>{
 
 })
 
-router.post('/signin', async (req,res) => {
+router.post("/signin", async (req,res) => {
     // console.log(req.body);
     // res.json({message : "Success"})
     // res.send("SignIn")
 
 
    try{
+        console.log(req.body);
         const {email, password} = req.body;
 
         if( !email || !password ){

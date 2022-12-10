@@ -23,17 +23,23 @@ const SignIn = () => {
   const postData = async (e) => {
     e.preventDefault();
     const {email, password } = data;
+
     const res = await axios
       .post("/signin", {
         email,
         password,
       })
       .then(async () => {
-        const data = await res.json();
-        console.log(data);
-        data.reset();
+        console.log(email, password);
+        // const data = await res.json();
+        // console.log(data);
+        window.alert("Login Successfull");
+        console.log("Successfull Login");
+        // data.reset();
       })
       .catch((err) => {
+        window.alert("Login Failed");
+        console.log("Login Failed");
         console.log(err);
       });
   };
@@ -63,7 +69,7 @@ const SignIn = () => {
             />
             {/* {error && <div className="error_msg">{error}</div>} */}
             <button type="submit" className="green_btn">
-              Sing In
+              Sign In
             </button>
           </form>
         </div>
@@ -71,7 +77,7 @@ const SignIn = () => {
           <h1>New Here ?</h1>
           <Link to="/signup">
             <button type="button" className="white_btn">
-              Sing Up
+              Sign Up
             </button>
           </Link>
         </div>

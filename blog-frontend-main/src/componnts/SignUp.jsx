@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const SignUp = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -25,9 +25,9 @@ const SignUp = () => {
     const { name, email, phone, password, cpassword } = user;
 
 
-
-
     // https://testing-2-x2zd.onrender.com
+
+    console.log(user);
 
     const res = await axios
       .post("/signup", {
@@ -38,24 +38,21 @@ const SignUp = () => {
         cpassword,
       })
       .then(async() => {
-        const data = await res.json();
-        console.log(data);
+        // const data = await res.json();
+        window.alert("Registration Successfull");
+        console.log("Successfull Registration");
+
+        // console.log(data);
         user.reset();
+        navigate.push("/signin");
+
       })
       .catch(err => {
+        window.alert("Invalid registration details");
+        console.log("Invalid registered details");
         console.log(err);
       });
     // const data = await res.json();
-
-    // if(data.status === 422 || !data){
-    //     window.alert("Invalid registered");
-    //     console.log("Invalid registered");
-    // }else{
-    //     window.alert("Registration Successfull");
-    //     console.log("Successfull Registration");
-
-    //     // navigate.push("/login");
-    // }
   };
 
   
