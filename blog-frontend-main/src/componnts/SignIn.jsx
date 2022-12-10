@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 const SignIn = () => {
   //   return (
   //     <>
-  
-    /* <div className="login-container">
+
+  /* <div className="login-container">
         <form method='POST' className="form-login">
             <ul className="login-nav">
                 <li className="login-nav__item active">
@@ -30,13 +30,12 @@ const SignIn = () => {
         </form>
        
     </div> */
-  
 
   //     </>
   //   )
 
   const [data, setData] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
 
   let name, value;
   const handleChange = (e) => {
@@ -46,29 +45,46 @@ const SignIn = () => {
     console.log(data);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const url = "https://testing-2-x2zd.onrender.com/api/auth";
-      const { data: res } = await axios.post(url, data);
-      localStorage.setItem("token", res.data);
-      window.location = "/home";
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      }
-    }
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const url = "/signin";
+  //     const res  = await axios.post(url, data);
+  //     localStorage.setItem("token", res.data);
+  //     window.location = "/home";
+  //   } catch (error) {
+  //     if (
+  //       error.response &&
+  //       error.response.status >= 400 &&
+  //       error.response.status <= 500
+  //     ) {
+  //       setError(error.response.data.message);
+  //     }
+  //   }
+  // };
 
+  const postData = async (e) => {
+    e.preventDefault();
+    const {email, password } = data;
+    const res = await axios
+      .post("/signin", {
+        email,
+        password,
+      })
+      .then(async () => {
+        const data = await res.json();
+        console.log(data);
+        data.reset();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="login_container">
       <div className="login_form_container">
         <div className="login-left">
-          <form className="form_container" onSubmit={handleSubmit}>
+          <form className="form_container" onSubmit={postData}>
             <h1>Login to Your Account</h1>
             <input
               type="email"
@@ -88,7 +104,7 @@ const SignIn = () => {
               required
               className="input"
             />
-            {error && <div className="error_msg">{error}</div>}
+            {/* {error && <div className="error_msg">{error}</div>} */}
             <button type="submit" className="green_btn">
               Sing In
             </button>

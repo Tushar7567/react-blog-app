@@ -13,7 +13,7 @@ router.get("/",(req,res)=>{
 router.post("/signup", async(req,res)=>{
     // console.log(req.body);
     // res.json({message : req.body})
-    res.send("SigUp")
+    // res.send("SignUp")
 
 
     const {name, email, phone, password, cpassword} = req.body;
@@ -35,7 +35,9 @@ router.post("/signup", async(req,res)=>{
             const user = new User({name, email, phone, password, cpassword});
 
             await user.save();
-    
+			
+			
+
             console.log(user);
             res.status(201).json({ message : "User registered successfully"});
            
@@ -66,7 +68,7 @@ router.post("/signup", async(req,res)=>{
 router.post('/signin', async (req,res) => {
     // console.log(req.body);
     // res.json({message : "Success"})
-    res.send("SignIn")
+    // res.send("SignIn")
 
 
    try{
@@ -80,6 +82,8 @@ router.post('/signin', async (req,res) => {
         
         if(userLogin){
             const isMatch = await bcrypt.compare(password, userLogin.password);
+
+			console.log(isMatch);
 
             const token = await userLogin.generateAuthToken();
             console.log(token);

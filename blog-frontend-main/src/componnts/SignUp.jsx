@@ -1,49 +1,70 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-// import axios from "axios";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = () => {
-      // const navigate = useNavigate();
-      const [user, setUser] = useState({
-          name:"", email:"", phone:"", password:"", cpassword:""
+  // const navigate = useNavigate();
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    cpassword: "",
+  });
+
+  let name, value;
+  const handleInput = (e) => {
+    name = e.target.name;
+    value = e.target.value;
+
+    setUser({ ...user, [name]: value });
+  };
+
+  const postData = async (e) => {
+    e.preventDefault();
+    const { name, email, phone, password, cpassword } = user;
+
+    // const res = await fetch("https://testing-2-x2zd.onrender.com/signup", {
+    //     method : "POST",
+    //     headers: {
+    //         "Content-Type" : "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         name, email, phone, password, cpassword
+    //     })
+    // })
+
+
+    // https://testing-2-x2zd.onrender.com
+
+    const res = await axios
+      .post("/signup", {
+        name,
+        email,
+        phone,
+        password,
+        cpassword,
       })
+      .then(async() => {
+        const data = await res.json();
+        console.log(data);
+        user.reset();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    // const data = await res.json();
 
-      let name, value;
-      const handleInput = (e) =>{
-          name = e.target.name;
-          value = e.target.value;
+    // if(data.status === 422 || !data){
+    //     window.alert("Invalid registered");
+    //     console.log("Invalid registered");
+    // }else{
+    //     window.alert("Registration Successfull");
+    //     console.log("Successfull Registration");
 
-          setUser({...user, [name]:value});
-      }
-
-      const postData = async(e) =>{
-          e.preventDefault();
-          const { name, email, phone, password, cpassword} = user;
-
-          const res = await fetch("https://testing-2-x2zd.onrender.com/signup", {
-              method : "POST",
-              headers: {
-                  "Content-Type" : "application/json"
-              },
-              body: JSON.stringify({
-                  name, email, phone, password, cpassword
-              })
-          })
-
-          const data = await res.json();
-          console.log(data);
-
-          // if(data.status === 422 || !data){
-          //     window.alert("Invalid registered");
-          //     console.log("Invalid registered");
-          // }else{
-          //     window.alert("Registration Successfull");
-          //     console.log("Successfull Registration");
-
-          //     // navigate.push("/login");
-          // }
-
-      }
+    //     // navigate.push("/login");
+    // }
+  };
 
   //   return (
   //     <>
@@ -129,7 +150,7 @@ const SignUp = () => {
   //     const  res  = await axios.post(url, data);
   //     navigate("/login");
   //     console.log(res.message);
-  //   } 
+  //   }
   //   }
   // };
 
