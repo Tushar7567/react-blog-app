@@ -12,6 +12,7 @@ import Article from "./componnts/Article";
 import SignUp from "./componnts/SignUp";
 import React, { useState, useEffect } from "react";
 import SignIn from "./componnts/SignIn";
+import Adminpage from "./componnts/Adminpage";
 
 function App() {
   const [obj1, setObj1] = useState([]);
@@ -34,7 +35,7 @@ function App() {
     // axios('./mock_data.json')
     //   .then((myjson) =>{setObj1(myjson.data)});
   }, []);
-  console.log(obj1);
+  // console.log(obj1);
 
   let bollywood = 0;
   let technology = 13;
@@ -68,6 +69,9 @@ function App() {
             <Route path="/food" element={<Food obj1={obj1} num={food} />} />
             <Route path="/signup" exact element={<SignUp />} />
             <Route path="/signin" exact element={<SignIn />} />
+
+            <Route path="/signin/admin" exact element={<Adminpage />} />
+            
             {/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
           </Route>
           <Route path="/article" element={<Article />} />

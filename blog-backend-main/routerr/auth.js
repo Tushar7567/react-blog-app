@@ -6,6 +6,8 @@ const jwt = require('jsonwebtoken');
 require('../DB/connection');
 const User = require('../model/userSchema');
 
+const authenticate = require("../middleware/authenticate")
+
 router.get("/",(req,res)=>{
     res.send("You are connected from router.js")
 })
@@ -95,36 +97,37 @@ router.post("/signin", async (req,res) => {
    }
 })
 
+// function loggedIn(req,res,next){
+//     const result = req.isAuthenticated()
+//     console.log(result);
+//     if(result){
+//         next();
+//     }else{
+//         res.redirect("/signin")
+//     }
+// }
+
+// router.get("/admin", loggedIn, (req,res) => {
+//     try{
+//         console.log("admin page");
+//         res.send("Hiiiiiiiii Admin");
+//     }
+//     catch(err){
+//         console.log(err);
+//     }
+// } )
+
+
+router.get("/signin/admin", authenticate ,(req,res)=>{
+    // console.log(req.body);
+    // res.send(req.parentUser)
+    res.send("admin is everything ok")
+
+});
+
+
+
 module.exports = router;
 
 
 
-
-// const router = require("express").Router();
-// const { User, validate } = require("../model/userSchema");
-// const bcrypt = require("bcrypt");
-
-// router.post("/", async (req, res) => {
-// 	try {
-// 		const { error } = validate(req.body);
-// 		console.log(error);
-// 		if (error)
-// 			return res.status(400).send({ message: error.details[0].message });
-
-// 		const user = await User.findOne({ email: req.body.email });
-// 		if (user)
-// 			return res
-// 				.status(409)
-// 				.send({ message: "User with given email already Exist!" });
-
-// 		const salt = await bcrypt.genSalt(Number(12));
-// 		const hashPassword = await bcrypt.hash(req.body.password, salt);
-
-// 		await new User({ ...req.body, password: hashPassword }).save();
-// 		res.status(201).send({ message: "User created successfully" });
-// 	} catch (error) {
-// 		res.status(500).send({ message: "Internal Server Error" });
-// 	}
-// });
-
-// module.exports = router;

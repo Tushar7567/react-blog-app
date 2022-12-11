@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 
  const SecondComp = ({obj1, num}) => {
-  console.log(obj1);
+  // console.log(obj1);
     return (
       <section className="container-1">
         <span className="text-latest"> The Latest</span>

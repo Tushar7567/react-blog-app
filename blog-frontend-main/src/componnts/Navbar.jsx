@@ -54,6 +54,11 @@ const Navbar = () => {
                 Signup
               </Link>
             </li>
+            <li>
+              <Link to="/signin/admin" className="link-text">
+                Admin
+              </Link>
+            </li>
           </ul>
         </div>
         <Outlet />

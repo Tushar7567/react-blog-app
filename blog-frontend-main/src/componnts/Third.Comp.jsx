@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const ThirdComp = ({ obj1, num }) => {
-  console.log(obj1);
+  // console.log(obj1);
   return (
     <>
       <span className="text-latest m-l"> Latest Articles</span>

@@ -43,8 +43,8 @@ const SignUp = () => {
         console.log("Successfull Registration");
 
         // console.log(data);
-        user.reset();
-        navigate.push("/signin");
+        // user.reset();
+        navigate("/signin");
 
       })
       .catch(err => {
