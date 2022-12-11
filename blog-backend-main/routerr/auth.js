@@ -121,7 +121,12 @@ router.post("/signin", async (req,res) => {
 router.get("/signin/admin", authenticate ,(req,res)=>{
     // console.log(req.body);
     // res.send(req.parentUser)
-    res.send("admin is everything ok")
+    try{
+        res.send("admin is everything ok")
+    }
+    catch(err){
+        console.log(err);
+    }
 
 });
 
