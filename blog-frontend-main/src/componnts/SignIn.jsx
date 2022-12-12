@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import { Link} from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 
 const SignIn = () => {
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [data, setData] = useState({ email: "", password: "" });
   // const [error, setError] = useState("");
@@ -38,7 +38,9 @@ const SignIn = () => {
         window.alert("Login Successfull");
         console.log("Successfull Login");
 
-        // navigate("/signin/admin");
+
+        // if()
+        navigate("/");
         // data.reset();
       })
       .catch((err) => {

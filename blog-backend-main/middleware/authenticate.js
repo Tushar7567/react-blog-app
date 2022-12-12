@@ -11,7 +11,11 @@ const authenticate = async (req,res,next) =>{
    
 
         console.log("1"); 
+        if(!req.headers.cookie){
+            return res.status(400).json({ error : "Please login first"});
+        }
         let token = await req.headers.cookie;
+        console.log(token);
         token = token.replace("jwtoken=", "");
         const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
 
@@ -23,14 +27,14 @@ const authenticate = async (req,res,next) =>{
        
        
         
-        // const parentUser = await User.findOne({
+        const parentUser = await User.findOne({
 
-        //     _id: verifyToken._id, 
-        //     "tokens.token" : token
-        // })
-        // if(!parentUser){
-        //     throw new Error("User not Found");
-        // }
+            _id: verifyToken._id, 
+            "tokens.token" : token
+        })
+        if(!parentUser){
+            throw new Error("User not Found");
+        }
 
     try{
         // req.token = token;
@@ -39,6 +43,7 @@ const authenticate = async (req,res,next) =>{
 
         if(verifyToken._id === admin_id){
             console.log("next() called");
+            // res.redirect("/")
             next();
         }
 

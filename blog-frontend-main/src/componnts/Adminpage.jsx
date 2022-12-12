@@ -13,7 +13,7 @@ const Adminpage = () => {
             withCredentials: true
         })
         
-        res.then(async(res)=>{
+        .then(async(res)=>{
 
             // const res = await fetch("/admin",{
             //     method: "GET",

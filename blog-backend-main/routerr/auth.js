@@ -53,6 +53,8 @@ router.post("/signup", async(req,res)=>{
 
 })
 
+
+
 router.post("/signin", async (req,res) => {
     // console.log(req.body);
     // res.json({message : "Success"})
@@ -85,7 +87,9 @@ router.post("/signin", async (req,res) => {
             if(!isMatch){
                 res.status(400).json({error: "Invalid Credentials"});
             }else{
+                // res.redirect("/");
                 res.json({message : "User signin successfully"});
+                // if()
             }
         }else{
             res.status(400).json({error: "Invalid Credentials"});
