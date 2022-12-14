@@ -11,11 +11,13 @@ const authenticate = async (req,res,next) =>{
    
 
         console.log("1"); 
-        if(!req.headers.cookie){
-            return res.status(400).json({ error : "Please login first"});
+       
+        let token = req.headers.cookie;
+        if(!token){
+            return res.status(400).send( "Please login first");
         }
-        let token = await req.headers.cookie;
         console.log(token);
+
         token = token.replace("jwtoken=", "");
         const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
 

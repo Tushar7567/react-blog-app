@@ -20,42 +20,42 @@ const Navbar = () => {
         <div className="navbar">
           <ul>
             <li>
-              <Link to="/" className="link-text">
+              <Link to="/" className="link-text nav-link-text">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/bollywood" className="link-text">
+              <Link to="/bollywood" className="link-text nav-link-text">
                 Bollywood
               </Link>
             </li>
             <li>
-              <Link to="/technology" className="link-text">
+              <Link to="/technology" className="link-text nav-link-text">
                 Technology
               </Link>
             </li>
             <li>
-              <Link to="/hollywood" className="link-text">
+              <Link to="/hollywood" className="link-text nav-link-text">
                 Hollywood
               </Link>
             </li>
             <li>
-              <Link to="/fitness" className="link-text">
+              <Link to="/fitness" className="link-text nav-link-text">
                 Fitness
               </Link>
             </li>
             <li>
-              <Link to="/food" className="link-text">
+              <Link to="/food" className="link-text nav-link-text">
                 Food
               </Link>
             </li>
             <li>
-              <Link to="/signup" className="link-text">
+              <Link to="/signup" className="link-text nav-link-text">
                 Signup
               </Link>
             </li>
             <li>
-              <Link to="/signin/admin" className="link-text">
+              <Link to="/signin/admin" className="link-text nav-link-text">
                 Admin
               </Link>
             </li>
