@@ -30,7 +30,7 @@ const SignUp = () => {
     console.log(user);
 
     const res = await axios
-      .post("/signup", {
+      .post("https://quaint-wasp-costume.cyclic.app/signup", {
         name,
         email,
         phone,

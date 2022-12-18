@@ -8,9 +8,7 @@ const Logout = () => {
     const navigate = useNavigate();
 
     const logout = async() =>{
-        const res = await axios.get("/logout", {
-            withCredentials: true
-        })
+        const res = await axios.get("https://quaint-wasp-costume.cyclic.app/logout")
         
         .then(async(res)=>{
             console.log("logout page");
