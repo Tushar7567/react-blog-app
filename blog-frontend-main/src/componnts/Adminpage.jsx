@@ -9,7 +9,7 @@ const Adminpage = () => {
 
     const callAdminpage = async() =>{
         
-        const res = await axios.get("https://quaint-wasp-costume.cyclic.app/signin/admin", {
+        const res = await axios.get("/signin/admin", {
             withCredentials: true
         })
         
