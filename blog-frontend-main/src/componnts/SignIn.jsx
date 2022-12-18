@@ -22,6 +22,10 @@ const SignIn = () => {
 
   // https://testing-2-x2zd.onrender.com
 
+  // "proxy": "https://quaint-wasp-costume.cyclic.app",
+  // "proxy": "https://quaint-wasp-costume.cyclic.app",
+  // "proxy": "https://quaint-wasp-costume.cyclic.app",
+  
   const postData = async (e) => {
     e.preventDefault();
     const {email, password } = data;

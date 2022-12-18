@@ -59,6 +59,11 @@ const Navbar = () => {
                 Admin
               </Link>
             </li>
+            <li>
+              <Link to="/logout" className="link-text nav-link-text">
+                Logout
+              </Link>
+            </li>
           </ul>
         </div>
         <Outlet />

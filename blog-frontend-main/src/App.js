@@ -13,9 +13,12 @@ import SignUp from "./componnts/SignUp";
 import React, { useState, useEffect } from "react";
 import SignIn from "./componnts/SignIn";
 import Adminpage from "./componnts/Adminpage";
+import Logout from "./componnts/Logout";
 
 function App() {
   const [obj1, setObj1] = useState([]);
+
+  const [succ_login, setSucc_login] = useState(true);
 
   const user = localStorage.getItem("token");
 
@@ -44,6 +47,13 @@ function App() {
   let food = 52;
   let home = 65;
 
+
+  
+
+
+
+
+
   return (
     <>
       <BrowserRouter>
@@ -71,6 +81,8 @@ function App() {
             <Route path="/signin" exact element={<SignIn />} />
 
             <Route path="/signin/admin" exact element={<Adminpage />} />
+            <Route path="/logout"  element={<Logout />} />
+
             
             {/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
           </Route>

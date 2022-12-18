@@ -28,6 +28,7 @@ const Adminpage = () => {
             
             // const data = await res.send("Evening");
             console.log("Admin page");
+
             console.log(res.data);
 
             if(!res.status === 200){
@@ -49,6 +50,7 @@ const Adminpage = () => {
   return (
     <div>
       Hello admin
+
     </div>
   )
 }
