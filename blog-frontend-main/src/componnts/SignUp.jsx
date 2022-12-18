@@ -29,7 +29,7 @@ const SignUp = () => {
 
     console.log(user);
 
-    const res = await axios
+    await axios
       .post("/signup", {
         name,
         email,

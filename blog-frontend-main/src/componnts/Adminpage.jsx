@@ -9,7 +9,8 @@ const Adminpage = () => {
 
     const callAdminpage = async() =>{
         
-        const res = await axios.get("/signin/admin", {
+        await axios
+        .get("/signin/admin", {
             withCredentials: true
         })
         
@@ -45,7 +46,7 @@ const Adminpage = () => {
     useEffect(() => {
 
         callAdminpage();
-    }, [])
+    })
 
   return (
     <div>

@@ -25,12 +25,13 @@ const SignIn = () => {
   // "proxy": "https://quaint-wasp-costume.cyclic.app",
   // "proxy": "https://quaint-wasp-costume.cyclic.app",
   // "proxy": "https://quaint-wasp-costume.cyclic.app",
+  // "proxy": "https://quaint-wasp-costume.cyclic.app"
   
   const postData = async (e) => {
     e.preventDefault();
     const {email, password } = data;
 
-    const res = await axios
+     await axios
       .post("/signin", {
         email,
         password,

@@ -8,7 +8,8 @@ const Logout = () => {
     const navigate = useNavigate();
 
     const logout = async() =>{
-        const res = await axios.get("/logout", {
+        await axios
+        .get("/logout", {
             withCredentials: true
         })
         
@@ -33,7 +34,7 @@ const Logout = () => {
     useEffect(() => {
 
         logout();
-    }, [])
+    })
 
 
 

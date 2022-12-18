@@ -18,9 +18,9 @@ import Logout from "./componnts/Logout";
 function App() {
   const [obj1, setObj1] = useState([]);
 
-  const [succ_login, setSucc_login] = useState(true);
+  // const [succ_login, setSucc_login] = useState(true);
 
-  const user = localStorage.getItem("token");
+  // const user = localStorage.getItem("token");
 
   // let passed = require("./mock_data.json")
   useEffect(() => {
